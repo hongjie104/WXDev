@@ -74,7 +74,7 @@ APP_JSON = '''{
 			"pagePath": "pages/test/test",
 			"text": "test"
 		}]
-	}
+	},
 	"debug": true
 }
 '''

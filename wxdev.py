@@ -144,23 +144,23 @@ PAGE_WXML = '''<view class="container">
 '''
 
 PAGE_WXSS = '''.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 200rpx 0;
+	box-sizing: border-box;
 }
 
 .textStyle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .textContainer {
-  margin-top: 200px;
+	margin-top: 200px;
 }
 '''
 

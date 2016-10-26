@@ -236,4 +236,9 @@ class NewWxPage(sublime_plugin.WindowCommand):
 
 	def is_enabled(self, dirs):
 		return len(dirs) == 1
-		
+
+class WxdevListener(sublime_plugin.EventListener):
+
+	def on_load(self, view):
+		if view.file_name().find(".wxml") != -1:
+			view.set_syntax_file("Packages/JavaScript/JavaScript.tmLanguage")

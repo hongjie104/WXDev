@@ -232,3 +232,5 @@ class WxdevListener(sublime_plugin.EventListener):
 	def on_load(self, view):
 		if view.file_name().find(".wxml") != -1:
 			view.set_syntax_file("Packages/JavaScript/JavaScript.tmLanguage")
+		elif view.file_name().find(".wxss") != -1:
+			view.set_syntax_file("Packages/CSS/CSS.tmLanguage")

@@ -166,36 +166,36 @@ class NewWxProjectCommand(sublime_plugin.WindowCommand):
 		v.sel().add(sublime.Region(0, len(title)))
 
 	def on_done(self, path, name):
-		filePath = os.path.join(path, name)
-		if os.path.exists(filePath):
-			sublime.error_message("Unable to create project, project exists.")
-		else:
-			os.makedirs(filePath)
-			
-			utils.writeFile(os.path.join(filePath, "app.js"), APP_JS)
-			utils.writeFile(os.path.join(filePath, "app.json"), APP_JSON.replace('${projectName}', name))
-			utils.writeFile(os.path.join(filePath, "app.wxss"), APP_WXSS)
-			# utils
-			utilPath = os.path.join(filePath, "utils")
-			os.makedirs(utilPath)
-			utils.writeFile(os.path.join(utilPath, "utils.js"), UTILS_JS)
-			# pages
-			pagePath = os.path.join(filePath, "pages")
-			# index page
-			indexPagePath = os.path.join(pagePath, "index")
-			os.makedirs(indexPagePath)
-			utils.writeFile(os.path.join(indexPagePath, "index.js"), PAGE_JS.replace('${name}', 'index'))
-			utils.writeFile(os.path.join(indexPagePath, "index.wxml"), PAGE_WXML)
-			utils.writeFile(os.path.join(indexPagePath, "index.wxss"), PAGE_WXSS)
-			# test page
-			textPagePath = os.path.join(pagePath, "test")
-			os.makedirs(textPagePath)
-			utils.writeFile(os.path.join(textPagePath, "test.js"), PAGE_JS.replace('${name}', 'test'))
-			utils.writeFile(os.path.join(textPagePath, "test.wxml"), PAGE_WXML)
-			utils.writeFile(os.path.join(textPagePath, "test.wxss"), PAGE_WXSS)
+		filePath = path
+		# if os.path.exists(filePath):
+		# 	sublime.error_message("Unable to create project, project exists.")
+		# else:
+		# os.makedirs(filePath)
+		
+		utils.writeFile(os.path.join(filePath, "app.js"), APP_JS)
+		utils.writeFile(os.path.join(filePath, "app.json"), APP_JSON.replace('${projectName}', name))
+		utils.writeFile(os.path.join(filePath, "app.wxss"), APP_WXSS)
+		# utils
+		utilPath = os.path.join(filePath, "utils")
+		os.makedirs(utilPath)
+		utils.writeFile(os.path.join(utilPath, "utils.js"), UTILS_JS)
+		# pages
+		pagePath = os.path.join(filePath, "pages")
+		# index page
+		indexPagePath = os.path.join(pagePath, "index")
+		os.makedirs(indexPagePath)
+		utils.writeFile(os.path.join(indexPagePath, "index.js"), PAGE_JS.replace('${name}', 'index'))
+		utils.writeFile(os.path.join(indexPagePath, "index.wxml"), PAGE_WXML)
+		utils.writeFile(os.path.join(indexPagePath, "index.wxss"), PAGE_WXSS)
+		# test page
+		textPagePath = os.path.join(pagePath, "test")
+		os.makedirs(textPagePath)
+		utils.writeFile(os.path.join(textPagePath, "test.js"), PAGE_JS.replace('${name}', 'test'))
+		utils.writeFile(os.path.join(textPagePath, "test.wxml"), PAGE_WXML)
+		utils.writeFile(os.path.join(textPagePath, "test.wxss"), PAGE_WXSS)
 
-			sublime.active_window().open_file(os.path.join(filePath, "app.js"))
-			sublime.status_message("WX project create success!")
+		sublime.active_window().open_file(os.path.join(filePath, "app.js"))
+		sublime.status_message("WX project create success!")
 
 	def is_enabled(self, dirs):
 		return len(dirs) == 1
